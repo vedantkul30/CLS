@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 import cv2
 import pickle
+from catboost import CatBoostClassifier
+import joblib
 from PIL import Image
 
 # Function to preprocess the image
@@ -123,9 +125,11 @@ l2_leaf_reg = 3
 iterations = 300
 depth = 8
 
-# Load pre-trained scaler and model
-scaler = pickle.load(open("scaler.sav", "rb"))
-model = pickle.load(open("cat_clf.sav", "rb"))
+model = CatBoostClassifier()
+model.load_model("cat_clf.cbm")
+
+# Load StandardScaler
+scaler = joblib.load("scaler.pkl")
 
 # Streamlit UI
 st.title("CLS Classification App")
