@@ -5,3 +5,4 @@ pickle-mixin
 Pillow
 scikit-learn
 catboost
+joblib
