@@ -1,5 +1,7 @@
 streamlit
 numpy
-opencv-python-headless
+opencv-python
 joblib
-pillow
+Pillow
+scikit-learn
+catboost
