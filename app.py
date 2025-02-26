@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import cv2
-import joblib
+import pickle
 from PIL import Image
 
 # Function to preprocess the image
@@ -124,8 +124,8 @@ iterations = 300
 depth = 8
 
 # Load pre-trained scaler and model
-scaler = joblib.load("scaler.pkl")
-model = joblib.load("catboost_model.pkl")
+scaler = pickle.load(open("scaler.sav", "rb"))
+model = pickle.load(open("cat_clf.sav", "rb"))
 
 # Streamlit UI
 st.title("CLS Classification App")
